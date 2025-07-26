@@ -16,6 +16,7 @@ export class ProductDetailsComponent {
   private productService = inject(ProductService);
   isLoading = true;
   error = '';
+  Math = Math;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
