@@ -14,13 +14,21 @@ export class ProductDetailsComponent {
   product: any;
   private route = inject(ActivatedRoute);
   private productService = inject(ProductService);
+  isLoading = true;
+  error = '';
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.productService.getProductById(id).subscribe({
-        next: (res) => this.product = res,
-        error: (err) => console.error(err)
+        next: (res) => {this.product = res
+
+          this.isLoading = false;
+        },
+        error: (err) =>{ console.error(err)
+          this.error = 'Failed to load products ';
+          this.isLoading = false;
+        }
       });
     }
   }

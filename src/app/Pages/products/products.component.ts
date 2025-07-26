@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit {
         
       },
       error: (err) => {
-        this.error = 'Failed to load products';
+        this.error = 'Failed to load products ';
         this.isLoading = false;
       }
     });

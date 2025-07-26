@@ -13,8 +13,11 @@
 </div>
 
 
-<div *ngIf="isLoading" class="text-center p-8">Loading...</div>
-<div *ngIf="error" class="text-red-500 text-center p-8">{{ error }}</div>
+<div *ngIf="isLoading" class="text-center my-10">
+    <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mx-auto"></div>
+    <p class="mt-4 text-gray-500">Loading products...</p>
+</div>
+<div *ngIf="error&&!isLoading" class="text-red-500 text-center p-8">{{ error }} <span>Try again.</span> </div>
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4" *ngIf="!isLoading && !error">
     <app-product-card *ngFor="let product of filteredAndSortedProducts()" [product]="product"></app-product-card>
