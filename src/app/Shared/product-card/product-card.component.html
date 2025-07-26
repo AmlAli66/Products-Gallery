@@ -1,4 +1,5 @@
-<a [routerLink]="['/products', product.id]" class="block border p-4 rounded shadow hover:shadow-lg transition">
+<a [routerLink]="['/products', product.id]"
+    class="block border p-4 rounded shadow hover:shadow-lg transition cursor-pointer">
     <img [src]="product.image" alt="{{ product.title }}" class="h-48 w-full object-contain mb-2" />
     <h2 class="font-semibold text-sm truncate">{{ product.title }}</h2>
 </a>

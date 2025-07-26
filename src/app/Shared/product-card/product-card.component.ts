@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -10,4 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductCardComponent {
   @Input() product: any;
+
+  constructor(private router: Router) {}
+
 }
