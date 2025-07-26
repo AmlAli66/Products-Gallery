@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../Core/Servises/product.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../Core/Servises/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -18,6 +19,8 @@ export class ProductDetailsComponent {
   error = '';
   Math = Math;
 
+  constructor(private cartService: CartService) {}
+
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
@@ -33,4 +36,10 @@ export class ProductDetailsComponent {
       });
     }
   }
+
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+  }
+  
 }
