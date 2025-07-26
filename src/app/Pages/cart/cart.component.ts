@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../Core/Servises/cart.service';
 import { CommonModule } from '@angular/common';
+import { CartItem } from '../../Core/Interfaces/types';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  cartItems: any[] = [];
+  cartItems: CartItem[] = [];
   userId = Number(localStorage.getItem('userId'));
 
   constructor(private cartService: CartService) {}

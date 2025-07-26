@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { ProductService } from './product.service';
+import { CartItem, CartPayload, Product } from '../Interfaces/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems = new BehaviorSubject<any[]>([]);
+  private cartItems = new BehaviorSubject<CartItem[]>([]);
   cartItems$ = this.cartItems.asObservable();
   private apiUrl = 'https://fakestoreapi.com/carts';
 
@@ -49,7 +50,7 @@ export class CartService {
     });
   }
 
-  addToCart(product: any) {
+  addToCart(product: Product) {
     const items = this.cartItems.getValue();
     const index = items.findIndex(p => p.product.id === product.id);
 
@@ -101,7 +102,7 @@ export class CartService {
   }
 
   checkout(userId: number) {
-    const body = {
+    const body : CartPayload= {
       userId,
       date: new Date().toISOString().split('T')[0],
       products: this.cartItems.getValue().map(item => ({
