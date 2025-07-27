@@ -1,25 +1,27 @@
 <div class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 px-4">
-    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md">
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md transition-colors duration-300">
         <div class="text-center mb-6">
-            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Welcome Back </h2>
+            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Welcome Back</h2>
             <p class="mt-2 text-gray-500 dark:text-gray-300">Please login to continue</p>
         </div>
 
         <form (ngSubmit)="login()" #loginForm="ngForm" class="space-y-4">
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Username</label>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
                 <input type="text" name="username" [(ngModel)]="username" required
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your username" />
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Password</label>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
                 <input type="password" name="password" [(ngModel)]="password" required
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your password" />
             </div>
 
             <button type="submit"
-                class="w-full bg-blue-600 hover:bg-blue-700 transition-all text-white font-semibold py-2 rounded-lg shadow-md hover:shadow-xl">
+                class="w-full bg-blue-600 hover:bg-blue-700 transition-all text-white font-semibold py-2 rounded-lg shadow-md hover:shadow-xl dark:bg-blue-500 dark:hover:bg-blue-600">
                 Login
             </button>
         </form>

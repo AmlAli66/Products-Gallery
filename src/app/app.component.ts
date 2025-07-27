@@ -11,4 +11,21 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 })
 export class AppComponent {
   title = 'products-gallery';
+
+  ngOnInit() {
+    const saved = localStorage.getItem('theme');
+    const isDark = saved === 'dark';
+    this.setTheme(isDark);
+  }
+
+  onThemeToggle(isDark: boolean) {
+    this.setTheme(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  setTheme(isDark: boolean) {
+    const root = document.documentElement;
+    root.classList.toggle('dark', isDark);
+  }
+
 }

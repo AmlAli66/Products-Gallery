@@ -1,10 +1,30 @@
-<nav class="flex justify-between items-center p-4 bg-white shadow-md dark:bg-slate-800">
-    <h1 class="text-xl font-bold text-gray-800 dark:text-white">Products Gallery</h1>
-    <button *ngIf="isLoggedIn" (click)="logout()"
-        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-auto">
-        Logout
-    </button>
-    <a routerLink="/cart" class="text-white hover:underline">🛒 View Cart</a>
+<nav
+    class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-6 py-4 shadow-md flex justify-between items-center">
+    <!-- Logo -->
+    <a routerLink="/" class="text-xl font-bold">
+        <i class="fa-solid fa-shop me-2"></i> ShopNow
+    </a>
 
-    <button class="text-sm px-4 py-1 bg-gray-700 text-white rounded">Dark Mode</button>
+    <!-- Icons -->
+    <div class="flex items-center gap-6">
+        <!-- Theme Toggle -->
+        <button (click)="toggleTheme()" class="text-2xl hover:text-yellow-400 transition">
+            <i [ngClass]="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
+        </button>
+
+        <!-- Cart -->
+        <a routerLink="/cart" class="relative text-2xl hover:text-green-500 transition">
+            <i class="fas fa-shopping-cart"></i>
+            <span *ngIf="cartCount > 0"
+                class="absolute -top-2 -right-3 text-xs bg-red-600 text-white rounded-full px-1.5 py-0.5">
+                {{ cartCount }}
+            </span>
+        </a>
+        <!-- Logout Icon -->
+        <button *ngIf="isLoggedIn" (click)="logout()" title="Logout"
+            class="text-2xl text-rose-600 dark:text-rose-400 hover:text-rose-800 dark:hover:text-rose-300 transition">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+
+    </div>
 </nav>

@@ -1,9 +1,11 @@
-<a class="block border p-4 rounded shadow hover:shadow-lg transition">
-    <div class="" [routerLink]="['/products', product.id]">
+<div
+    class="block border p-4 rounded shadow hover:shadow-lg transition bg-white text-black dark:bg-gray-800 dark:text-white">
+    <div class="cursor-pointer" [routerLink]="['/products', product.id]">
         <img [src]="product.image" alt="{{ product.title }}" class="h-48 w-full object-contain mb-2" />
         <h2 class="font-semibold text-sm truncate">{{ product.title }}</h2>
     </div>
-    <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mt-2" (click)="addToCart(product)">
+    <button
+        class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mt-2 dark:bg-green-600 dark:hover:bg-green-700">
         Add to Cart
     </button>
-</a>
+</div>

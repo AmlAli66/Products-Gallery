@@ -1,0 +1,10 @@
+.app-wrapper {
+    min-height: 100vh;
+    background-color: theme('colors.gray.100'); // tailwind color
+    @apply transition-colors;
+  
+    .dark & {
+      background-color: theme('colors.gray.900');
+    }
+  }
+  
